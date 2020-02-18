@@ -6,6 +6,8 @@ import com.parapsicologia.gateway.entity.FormulacaoResponseHttp;
 import com.parapsicologia.gateway.entity.FormulacaoResquestHttp;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class FormulacaoMapper {
 
@@ -35,6 +37,16 @@ public class FormulacaoMapper {
                 .titulo(entrada.getTitulo())
                 .texto(entrada.getTexto())
                 .publicacao(entrada.getPublicacao())
+                .build();
+    }
+
+    public FormulacaoEntity mapTableOptionalToEntity(Optional<FormulacaoTable> entrada) {
+
+        return FormulacaoEntity.builder()
+                .idFormulacoes(entrada.get().getIdFormulacoes())
+                .titulo(entrada.get().getTitulo())
+                .texto(entrada.get().getTexto())
+                .publicacao(entrada.get().getPublicacao())
                 .build();
     }
 

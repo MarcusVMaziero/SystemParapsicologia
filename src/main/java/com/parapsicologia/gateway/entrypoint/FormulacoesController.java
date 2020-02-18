@@ -1,5 +1,6 @@
 package com.parapsicologia.gateway.entrypoint;
 
+import com.parapsicologia.core.usecase.GetFormulacaoUseCase;
 import com.parapsicologia.core.usecase.PostFormulacaoUseCase;
 import com.parapsicologia.gateway.entity.FormulacaoResponseHttp;
 import com.parapsicologia.gateway.entity.FormulacaoResquestHttp;
@@ -13,12 +14,15 @@ public class FormulacoesController {
 
     private final PostFormulacaoUseCase postFormulacaoUseCase;
 
+    private final GetFormulacaoUseCase getFormulacaoUseCase;
+
     private final FormulacaoMapper mapper;
 
     @Autowired
-    public FormulacoesController(PostFormulacaoUseCase postFormulacaoUseCase, FormulacaoMapper mapper) {
+    public FormulacoesController(PostFormulacaoUseCase postFormulacaoUseCase, FormulacaoMapper mapper, GetFormulacaoUseCase getFormulacaoUseCase) {
         this.postFormulacaoUseCase = postFormulacaoUseCase;
         this.mapper = mapper;
+        this.getFormulacaoUseCase = getFormulacaoUseCase;
     }
 
     @PostMapping("/formulacoes")
@@ -26,14 +30,14 @@ public class FormulacoesController {
         return mapper.mapToHttp(postFormulacaoUseCase.postFormulacao(mapper.mapToEntity(formulacaoResponseHttp)));
     }
 
-    @GetMapping("/formulacoes")
+    @GetMapping("/formulacoes/all")
     public Iterable<FormulacaoResponseHttp> getAllFormulacoes() {
         return null;
     }
 
-    @GetMapping("/formulacoes/all")
+    @GetMapping("/formulacoes")
     public FormulacaoResponseHttp getOneFormulacao(@RequestParam Long idFormulacoes) {
-        return null;
+        return mapper.mapToHttp(getFormulacaoUseCase.getFormulacaoOne(idFormulacoes));
     }
 
     @PutMapping("/formulacoes")

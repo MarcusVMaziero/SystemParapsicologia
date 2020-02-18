@@ -7,6 +7,8 @@ import com.parapsicologia.gateway.mapper.FormulacaoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class FormulacaoDataProvider implements FormulacaoGateway {
 
@@ -25,5 +27,16 @@ public class FormulacaoDataProvider implements FormulacaoGateway {
                 repository.save(
                         mapper.mapEntityToTable(
                                 formulacaoEntity)));
+    }
+
+    @Override
+    public List<FormulacaoEntity> getFormulacao() {
+        return null;
+    }
+
+    @Override
+    public FormulacaoEntity getFormulacaoOne(Long id) {
+        return mapper.mapTableOptionalToEntity(
+                repository.findById(id));
     }
 }
