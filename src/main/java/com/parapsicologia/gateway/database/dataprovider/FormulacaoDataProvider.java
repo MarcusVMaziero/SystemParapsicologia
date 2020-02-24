@@ -31,7 +31,7 @@ public class FormulacaoDataProvider implements FormulacaoGateway {
 
     @Override
     public List<FormulacaoEntity> getFormulacao() {
-        return null;
+        return mapper.mapListToListEntity(repository.findAll());
     }
 
     @Override
