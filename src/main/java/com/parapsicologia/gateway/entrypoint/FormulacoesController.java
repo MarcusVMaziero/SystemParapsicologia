@@ -46,7 +46,7 @@ public class FormulacoesController {
         return mapper.mapToHttp(getFormulacaoUseCase.getFormulacaoOne(idFormulacoes));
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @PutMapping("/formulacoes")
     public FormulacaoResponseHttp putFormulacao(@RequestBody FormulacaoResquestHttp formulacaoResponseHttp) {
         return null;
