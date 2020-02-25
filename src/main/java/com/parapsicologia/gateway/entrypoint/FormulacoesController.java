@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("v1/api/v1")
 public class FormulacoesController {
 
@@ -46,7 +47,6 @@ public class FormulacoesController {
         return mapper.mapToHttp(getFormulacaoUseCase.getFormulacaoOne(idFormulacoes));
     }
 
-    @CrossOrigin(origins = "*")
     @PutMapping("/formulacoes")
     public FormulacaoResponseHttp putFormulacao(@RequestBody FormulacaoResquestHttp formulacaoResponseHttp) {
         return null;
