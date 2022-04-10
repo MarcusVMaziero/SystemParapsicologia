@@ -23,10 +23,6 @@ public class FormulacaoTable {
     @Id
     @GeneratedValue
     private Long idFormulacoes;
-
-    private String titulo;
-
     private String texto;
-
-    private LocalDate publicacao;
+    private LocalDate dataPublicacao;
 }

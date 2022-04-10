@@ -17,12 +17,8 @@ import java.time.LocalDate;
 public class FormulacaoResponseHttp {
 
     private Long idFormulacoes;
-
-    private String titulo;
-
     private String texto;
-
     @JsonProperty(value = "data_publicacao")
-    private LocalDate publicacao;
+    private LocalDate dataPublicacao;
 
 }

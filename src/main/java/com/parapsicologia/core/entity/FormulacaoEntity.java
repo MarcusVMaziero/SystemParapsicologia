@@ -14,10 +14,6 @@ import java.time.LocalDate;
 public class FormulacaoEntity {
 
     private Long idFormulacoes;
-
-    private String titulo;
-
     private String texto;
-
-    private LocalDate publicacao;
+    private LocalDate dataPublicacao;
 }
