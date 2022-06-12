@@ -14,14 +14,14 @@ import java.util.stream.Collectors;
 @Component
 public class FormulacaoMapper {
 
-    public FormulacaoEntity mapToEntity(FormulacaoResquestHttp entrada) {
+    public FormulacaoEntity mapToEntity(final FormulacaoResquestHttp entrada) {
 
         return FormulacaoEntity.builder()
                 .texto(entrada.getTexto())
                 .build();
     }
 
-    public FormulacaoResponseHttp mapToHttp(FormulacaoEntity entrada) {
+    public FormulacaoResponseHttp mapToHttp(final FormulacaoEntity entrada) {
         return FormulacaoResponseHttp.builder()
                 .idFormulacoes(entrada.getIdFormulacoes())
                 .texto(entrada.getTexto())
